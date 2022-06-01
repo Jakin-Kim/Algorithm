@@ -2,6 +2,6 @@
 To strengthen my logical thinking skills
 
 ## Source
-### 1. LeetCode
+### [LeetCode](https://leetcode.com/)
 
 ### 2. Daily Coding_Codestates
