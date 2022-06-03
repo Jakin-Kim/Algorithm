@@ -7,8 +7,8 @@ function convertDoubleSpaceToSingle(str) {
     return singleSpacedStr;
 
     // Problem solving above is the way i've approached.
-    // Methods like 'split', 'join' aren't used on the Reference.
-    // but I guess it works more efficient.
+    // The methods like 'split', 'join' aren't used on the Reference.
+    // But I guess it works more efficient.
     
     // Reference,
     //function convertDoubleSpaceToSingle(str) {
