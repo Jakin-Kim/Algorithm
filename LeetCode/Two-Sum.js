@@ -1,5 +1,5 @@
 // I got accepted when I run the test
-// However, once I submit button the result status came out wrong... don't know why... lol
+// However, once I press 'submit' button, the result status came out wrong... don't know why... lol
 
 let twoSum = function(nums, target) {
     // Given: an array of integers(num) and an integer(target)
