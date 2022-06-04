@@ -1,4 +1,4 @@
-// I got accepted when I run the test
+// I've got accepted when I run the test
 // However, once I press 'submit' button, the result status came out wrong... don't know why... lol
 
 let twoSum = function(nums, target) {
