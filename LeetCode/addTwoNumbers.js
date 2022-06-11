@@ -1,5 +1,5 @@
-// I wasn't able to be accepted from this problem due to Runtime error, showing that 'l1.revsere is not a function'.
-// I thought I was doing wrong with it so tried to figure out ths issue wtih Google but couldn't find it.
+// I wasn't able to be accepted from the problem due to Runtime error, showing that 'l1.revsere is not a function'.
+// I thought I was doing wrong with it so tried to figure out ths issue with Google but couldn't find it.
 // The thing that I've found is the comments on Discussion section: "LeetCode has this kinds of bug from time to time".
 // Here's the process that I've approached and it still works in console :)
 
