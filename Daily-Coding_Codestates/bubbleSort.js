@@ -36,7 +36,6 @@ const swap = function (idx1, idx2, arr) {
 
 // optimized solution
 let bubbleSort = function (arr) {
-  
   let N = arr.length;
 
   for (let i = 0; i < N; i++) {
@@ -45,16 +44,16 @@ let bubbleSort = function (arr) {
     let swaps = 0;
 
     // 매 반복(iteration)마다 i번째로 큰 수가 마지막에서 i번째 위치하게 된다.
-    // 이미 정렬된 요소는 고려할 필요가 없으므로, 'j < N - 1 - i'만 비교하면 된다.
+    // 이미 정렬된 요소는 고려할 필요가 없으므로, 'j < N - 1 - i'만 비교하면 된다.(왜? 아래 if문의 조건에 해당이 되는 요소가 없으니까 반복문은 그대로 통과)
     for (let j = 0; j < N - 1 - i; j++) {
       if (arr[j] > arr[j + 1]) {
         swaps++;
-        swap(j, j + 1, arr);
+        swap(j, j + 1, arr); // 두 변수를 바꿈으로써 정렬 순서를 바꾸기
       }
     }
 
     if (swaps === 0) {
-      break;
+      break; // 어떤 요소도 swap되지 않은 경우, 배열은 정렬된 상태이다.
     }
   }
 
