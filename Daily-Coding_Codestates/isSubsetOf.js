@@ -43,3 +43,31 @@ const isSubsetOf = function (base, sample) {
   // 2. 이중반복문을 사용하여 두 배열의 모든 요소를 순회하다가 겹치는 요소를 발견하면 
       // base의 요소 반복 시, 그 다음 반복 실행하기
 };
+
+// ----------------------------------------------------
+const isSubsetOf = function (base, sample) {
+  // naive solution: O(M * N)
+  // return sample.every((item) => base.includes(item));
+
+  // 각 배열을 정렬: O(N * logN), O(M * logM)
+  // N >= M 이므로, O(N * logN)
+  base.sort((a, b) => a - b);
+  sample.sort((a, b) => a - b);
+
+  const findItemInSortedArr = (item, arr, from) => {
+    for (let i = from; i < arr.length; i++) {
+      if (item === arr[i]) return i;
+      else if (item < arr[i]) return -1;
+    }
+    return -1;
+  };
+
+  let baseIdx = 0;
+  for (let i = 0; i < sample.length; i++) {
+    baseIdx = findItemInSortedArr(sample[i], base, baseIdx);
+    if (baseIdx === -1) return false;
+  }
+  return true;
+};
+
+
