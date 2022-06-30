@@ -1,30 +1,8 @@
-let swaps = function (idx1, idx2, arr) {
-  // 배열의 요소의 순서를 변경하는 함수
-  // 배열은 원본 배열을 가리키는 참조 값만 할당되기 때문에 이런식으로 구조 분해 할당을 사용할 수 있다.
-  [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]; 
-}
-
-const bubbleSort = function (arr) {
-  // 배열의 모든 요소를 오름차순하여 새로 정렬된 함수
-  let swap = 0; // swaps 함수가 실행되서 배열이 바뀌는 횟수 기록하기
-  for (let i = 0; arr.length; i++) {
-    if (arr[i] > arr[i + 1]) {
-      swaps(arr[i], arr[i + 1], arr);
-      swap++;
-    }
-  }
-
-  if (swap === 0) {
-    return arr;
-  }
-
-  return arr;
-}
-
-const isSubsetOf = function (base, sample) {
-  // TODO: 여기에 코드를 작성합니다.
-
-  // 모든 요소를 순회하므로 실행 시간 초과!
+const isSubsetOf = function (base, sample) { // sample이 base의 부분집합인지 여부를 리턴
+  // base = [10, 99, 123, 7] -> [7, 10, 99, 123]
+  // sample = [11, 100, 99, 123] -> [11, 99, 100, 123]
+ 
+  // 모든 요소를 순회하므로 실행 시간 초과! -> 선형 알고리즘(내가 접근했던 방식)
   // let count = 0;
   // for (let i = 0; i < base.length; i++) {
   //   for (let j = 0; j < sample.length; j++) {
@@ -35,39 +13,34 @@ const isSubsetOf = function (base, sample) {
   // }
   // return count === sample.length; 
 
-  // 모든 요소를 순회하므로 실행 시간 초과!
-  // return sample.every((ele) => base.includes(ele))
-
-  // 이중반복문을 사용하더라도 시간복잡도를 고려하기
-  // 1. 먼저 두 배열(base와 sample)의 모든 요소를 오름차순으로 정리한 배열을 만들기
-  // 2. 이중반복문을 사용하여 두 배열의 모든 요소를 순회하다가 겹치는 요소를 발견하면 
-      // base의 요소 반복 시, 그 다음 반복 실행하기
-};
-
-// ----------------------------------------------------
-const isSubsetOf = function (base, sample) {
   // naive solution: O(M * N)
-  // return sample.every((item) => base.includes(item));
+  // 모든 요소를 순회하므로 실행 시간 초과! -> 선형 알고리즘
+  // return sample.every((ele) => base.includes(ele)) -> 선형 알고리즘
+  // every() 메서드는 배열 안의 모든 요소가 주어진 판별 함수를 통과하는지 테스트하며, boolean을 반환한다.
 
   // 각 배열을 정렬: O(N * logN), O(M * logM)
   // N >= M 이므로, O(N * logN)
-  base.sort((a, b) => a - b);
-  sample.sort((a, b) => a - b);
+  base.sort((a, b) => a - b); // 기존 배열의 요소가 정렬된 상태로 변경되어 있다.
+  sample.sort((a, b) => a - b); // 기존 배열의 요소가 정렬된 상태로 변경되어 있다.
+  // sort()메서드는 기존 함수를 변경시켜서 문자열의 유니코드 코드 포인트를 따른다.
+    // a > b이면, b가 먼저 온다(작은 수(b)부터 오름차순으로 정렬시킨다).
+    // a === b이면, 서로 변경하지 않고, 모든 다른 요소에 대해서 정렬시킨다.
+    // a < b이면, a가 먼저 온다(작은 수(a)부터 오름차순으로 정렬시킨다).
 
+  // 이 함수를 왜 만들어주는거지? -> 이진 검색을 통해 시간복잡도를 효율적으로 하기 위해서
   const findItemInSortedArr = (item, arr, from) => {
     for (let i = from; i < arr.length; i++) {
-      if (item === arr[i]) return i;
-      else if (item < arr[i]) return -1;
+      if (item === arr[i]) return i; // 찾고자 하는 요소(item)가 정렬된 배열(arr)에 있으면, 해당 요소의 인덱스 값을 리턴
+      else if (item < arr[i]) return -1; // 
     }
-    return -1;
+    return -1; // 찾고자 하는 요소(item)가 정렬된 배열(arr)에 없으면, -1을 리턴 
   };
 
   let baseIdx = 0;
   for (let i = 0; i < sample.length; i++) {
-    baseIdx = findItemInSortedArr(sample[i], base, baseIdx);
-    if (baseIdx === -1) return false;
+    // sample의 각 요소를 순회하면서 정렬된 base의 요소와 일치하는지 확인하기
+    baseIdx = findItemInSortedArr(sample[i], base, baseIdx); 
+    if (baseIdx === -1) return false; // sample의 요소가 하나라도 base의 요소로 없다면 false이다.
   }
   return true;
 };
-
-
