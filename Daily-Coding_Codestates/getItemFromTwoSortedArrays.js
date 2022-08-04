@@ -21,7 +21,9 @@ const getItemFromTwoSortedArrays = function (arr1, arr2, k) {
 
 
 // 위 naive soulution을 이해하고 보기
+  // O(logK) solution
 const getItemFromTwoSortedArrays = function (arr1, arr2, k) {
+
   let leftIdx = 0,
     rightIdx = 0;
 
