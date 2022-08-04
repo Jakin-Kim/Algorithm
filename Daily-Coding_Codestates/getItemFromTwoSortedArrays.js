@@ -1,23 +1,26 @@
-// naive solution
-// const getItemFromTwoSortedArrays = function (arr1, arr2, k) {
-//   let cnt = 0,
-//     left = 0,
-//     right = 0;
-//   let target;
-//   while (cnt < k) {
-//     if (arr1[left] < arr2[right]) {
-//       target = arr1[left];
-//       left++;
-//     } else {
-//       target = arr2[right];
-//       right++;
-//     }
-//     cnt++;
-//   }
-//   return target;
-// };
+const getItemFromTwoSortedArrays = function (arr1, arr2, k) {
+  // TODO: 여기에 코드를 작성합니다.
+  //   naive solution - O(N)
+  let count = 1; // 크기가 작은 순서대로 target이 교체될 때마다 카운팅(비교하는 횟수 카운팅)
+  let idxOfArr1 = 0; // 두 배열(arr1과 arr2)의 인덱스로 크기가 작은 순서대로 하나씩 비교하기 위해
+  let idxOfArr2 = 0; // 두 배열(arr1과 arr2)의 인덱스로 크기가 작은 순서대로 하나씩 비교하기 위해
 
-// O(logK) solution
+  let target; // 두 배열의 각 요소를 비교하고 반복문을 통해 작은 값들을 하나씩 지정하면서 올라갈 예정
+  while(count <= k) { // k번째까지 도달할때까지 반복해서 크기 비교하기
+    if(arr1[idxOfArr1] < arr2[idxOfArr2]) { // 각 배열의 요소들의 크기 비교(왜? 크기가 작은 순서대로 target을 교체하기 위해)
+      target = arr1[idxOfArr1];
+      idxOfArr1++;
+    } else { // 각 배열의 요소들의 크기 비교(왜? 크기가 작은 순서대로 target을 교체하기 위해)
+      target = arr2[idxOfArr2];
+      idxOfArr2++;
+    }
+    count++; // 작은 수부터 차례대로 비교하면서 하나씩 올라가는 과정을 카운팅하기
+  }
+  return target;    
+};
+
+
+// 위 naive soulution을 이해하고 보기
 const getItemFromTwoSortedArrays = function (arr1, arr2, k) {
   let leftIdx = 0,
     rightIdx = 0;
