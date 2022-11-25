@@ -41,7 +41,8 @@ function validAnagram(str1, str2) { // O(N)
         }
     }
 
-    // 3. str1의 데이터가 담긴 객체 내용과 str2의 데이터가 담긴 객체 내용이 일치하는지 확인 후, 일치 여부를 boolean으로 리턴한다.
+    // 3. str1의 데이터가 담긴 객체 내용과 str2의 데이터가 담긴 객체 내용이 일치하는지 확인 후, 
+    // 4. 일치 여부를 boolean으로 리턴한다.
     let charCount1 = 0;
     let charCount2 = 0;
     if(keyCount1 > keyCount2) {
