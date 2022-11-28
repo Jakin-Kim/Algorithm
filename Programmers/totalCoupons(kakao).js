@@ -1,3 +1,46 @@
+function totalCoupons(id_list, k) {
+    // 입력값(id_list): 물품을 구매한 고객들의 ID가 문자열 형태로 담긴 배열
+    // 입력값(k): 고객 한 명당 받을 수 있는 최대 쿠폰 수
+
+    // 1. 각 고객당 받은 쿠폰의 갯수의 정보를 담은 객체를 생성한다.
+    let customersCoupons = {};
+    
+    // 2. 구매한 일자에 따라 각 고객의 이름별로 구성된 2차원 배열을 만든다.
+    let customers = []; 
+    for(let onedayList of id_list) { // onedayList -> "JAY", "JAY ELLE JAY MAY"
+        let onedayListArr = onedayList.split(' ');
+        // 2-1. 하루에 2번 이상 구매한 고객은 제외한다.
+        let newOnedayListArr = onedayListArr.filter((ele, idx) => {
+            return onedayListArr.indexOf(ele) === idx;
+        });
+        customers.push(newOnedayListArr);
+    }
+    
+    // 3. 고객 정보를 순회하면서 하루에 어떤 고객이 몇 장씩 가져갔는지 파악한다.
+    for(let onedayCustomers of customers) {
+        for(let each of onedayCustomers) {
+            if(!customersCoupons[each]) {
+                customersCoupons[each] = 1;
+            } else {
+                customersCoupons[each]++;
+            }
+
+            // 3-1. 가져간 총 갯수가 k보다 많은 경우, 하나씩 빼서 k보다 크지 않게 한다.. 
+            if(customersCoupons[each] > k) {
+                customersCoupons[each]--;
+            } 
+        }
+    }
+
+    // 4. 1에서 생성한 객체의 프로퍼티 값(고객들이 수령한 쿠폰 갯수)을 모두 더한 값을 리턴한다.
+    let result = 0;
+    for (let customer in customersCoupons) {
+        result += customersCoupons[customer];
+    }
+
+    return result;
+}
+
 // 문제설명
 // XX 페이를 이용해서 물품을 구매한 고객들에게 10% 할인 쿠폰을 지급하려 합니다.
 // 쿠폰을 지급하는 방법은 다음과 같습니다.
@@ -44,7 +87,3 @@
     // - JAY 고객은 1일차, 2일차에 쿠폰을 받고, 하루 최대 1장씩 쿠폰을 받을 수 있기 때문에 2일차에는 1회만 지급됩니다.
     // - ELLE 고객은 2일차, 3일차, 4일차에 쿠폰을 받고, 고객당 최대 3장까지 지급이 가능하기 때문에 5일차부터는 지급되지 않습니다.
     // - MAY 고객은 2일차, 3일차, 4일차에 쿠폰을 받고, 하루 최대 1장씩 쿠폰을 받을 수 있기 때문에 3일차에는 1회만 지급되며, 고객당 최대 3장까지 지급이 가능하기 때문에 5일차부터는 지급되지 않습니다.
-
-function totalCoupon(id_list, k) {
-
-}
