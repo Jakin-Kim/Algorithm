@@ -8,3 +8,8 @@ function areThereDuplicates() {
   }
   return false;
 }
+
+// One Linear 해결책
+function areThereDuplicates() {
+  return new Set(arguments).size !== arguments.length;
+}
