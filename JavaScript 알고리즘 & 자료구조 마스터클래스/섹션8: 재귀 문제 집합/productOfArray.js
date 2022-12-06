@@ -3,8 +3,8 @@
 
 function productOfArray(arr) {
     // base case
-    if(!arr.length) return 0;
+    if(!arr.length) return 1;
     
     // recursive case
-    return arr.reduce((acc, cur) => acc * cur);
+    return arr[0] * productOfArr(arr.slice(1));
 }
