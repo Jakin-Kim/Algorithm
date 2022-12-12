@@ -5,15 +5,8 @@ function binarySearch(sortedArr, val){
   
   while(leftIdx < rightIdx) {
     middleIdx = Math.ceil((leftIdx + rightIdx) / 2)
-    
-    if(val < sortedArr[middleIdx]) {
-        rightIdx = middleIdx;
-    }
-    
-    if(val > sortedArr[middleIdx]) {
-        leftIdx = middleIdx;
-    }
-    
+    if(val < sortedArr[middleIdx]) rightIdx = middleIdx;
+    if(val > sortedArr[middleIdx]) leftIdx = middleIdx;
     if(val === sortedArr[middleIdx]) return middleIdx;
   }
   
