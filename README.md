@@ -4,7 +4,7 @@
 
 The basic skill set for Software Engineer is to find out solutions more efficiently. 
 
-The more you put your time and effort on it, it wil be easier for you to get off the work early i promise :)
+The more you put your time and effort, it will be easier to get off the work early I promise :)
 
 So, I will be trying to strengthen my logical thinking skills.
 
