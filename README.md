@@ -2,15 +2,15 @@
 
 <i>"Dream big. Start small. But most of all, start." - Simon Sinek - </i>
 
-The basic skill set for Software Engineer is to find out solutions more efficiently. 
+The basic skill set for a Software Engineer is to find out solutions more efficiently. 
 
 The more you put your time and effort, it will be easier to get off the work early I promise :)
 
-So, I will be trying to strengthen my logical thinking skills.
+For me, I'm trying to strengthen my logical thinking skills.
 
-Here's what I've done for record of Algorithms.
+Here are the Algorithms that I have studied.
 
-Please feel free to reach out to me in regards to any feedback to kimyagin94@gmail.com.
+Please feel free to reach out in regards to any feedback. kimyagin94@gmail.com.
 
 Let's make it!
 
