@@ -18,10 +18,12 @@ function swap(idx1, idx2, arr) {
   // arr[idx1] ^= arr[idx2];
 }
 
+// TODO
 function getParentIdx(idx) {
   return Math.floor((idx - 1) / 2);
 }
 
+// TODO
 function insert(heap, item) {
   heap.push(item);
   let curIdx = heap.length - 1;
