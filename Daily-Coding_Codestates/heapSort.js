@@ -7,6 +7,7 @@ function getParentIdx(idx) {
   return Math.floor((idx - 1) / 2);
 }
 
+// TODO
 function insert(heap, item) {
   heap.push(item);
   if(heap.length > 1) {
@@ -21,6 +22,7 @@ function insert(heap, item) {
   return heap;
 }
 
+// TODO
 function removeRoot(heap) {
   swap(0, heap.length - 1, heap);
   heap.pop();
@@ -48,6 +50,7 @@ const binaryHeap = function (arr) {
   }, []);
 };
 
+// TODO
 const heapSort = function (arr) {
   let minHeap = binaryHeap(arr);
   let sorted = [];
