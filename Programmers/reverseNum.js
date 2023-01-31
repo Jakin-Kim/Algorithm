@@ -1,4 +1,4 @@
-function solution(n) {
+function reverseNum(n) {
     var answer = [];
     let stringifiedN = String(n);
     for(let i = stringifiedN.length - 1; i >= 0; i--) {
